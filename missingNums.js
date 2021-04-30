@@ -1,19 +1,18 @@
+function missingNumbers(arr) {
   let newArr = [];
-  function missingNums(arr) {
   let sortedArr = arr.sort((a, b) => {
     return a - b;
   });
-  let newArr = []
-  for(let i = sortedArr[0] ; i<=sortedArr[sortedArr.length - 1]; i++ ){
-    newArr.push(i)
+  for (let i in sortedArr) {
+    if (sortedArr[i] + 1 !== sortedArr[parseInt(i) + 1]) {
+      newArr.push(sortedArr[i]);
+      for (let j = sortedArr[i] + 1; j < sortedArr[parseInt(i) + 1]; j++) {
+        newArr.push("undefined");
+      }
+    } else {
+      newArr.push(sortedArr[i]);
+    }
   }
-   for(let item of sortedArr){
-     for(let item1 in newArr){
-      
-     }
-   }
+  console.log(newArr);
 }
-
-missingNums([4, 3, 0, 9]);
-
-// in process!!!
+missingNumbers([3, 6, 2, 0, 9]);
